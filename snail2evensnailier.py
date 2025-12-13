@@ -1,6 +1,6 @@
 # This is Snail Remastered. This is pretty much the exact same game as Snail, except I wrote it with OOP instead of pure functions and 
 # argument soup. 
-
+import os 
 class Game:
     # This is supposed to live in Player. I don't care, though. I'm tired. I should go to bed.
     directions = {
@@ -45,6 +45,7 @@ class Game:
             print("Invalid direction")
 
     def update(self):
+        os.system('cls' if os.name == "nt" else 'clear')
         self.draw_board() # IT DRAWS THE BOARD
         direction_x, direction_y = self.get_input() # YOU COULD HAVE UNPACKED IT HERE INSTEAD OF IN THE INPUT FUNCTION. DO NOT FORGET THIS OMAR 
         new_x = self.player.x + direction_x 
@@ -67,4 +68,5 @@ player = Player()
 game = Game(grid_size=5, player=player) # Right here, too! I hope Mr. BDFL is proud of me. 
 if __name__ == "__main__":
     game.run_game()
+
 
